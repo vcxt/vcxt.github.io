@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursor Follower</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #111;
+      cursor: none; /* optional: hide default cursor */
+    }
+
+    .cursor-shadow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-shadow"></div>
+
+  <script>
+    const circle = document.querySelector('.cursor-shadow');
+
+    document.addEventListener('mousemove', (e) => {
+      circle.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
+
+</body>
+</html>
